@@ -1,0 +1,52 @@
+Spring4.1.2 + Mybatis3.4.1 + mybatis-spring1.3.1+c3p0 0.9.5.2
+
+由于版本冲突会报2个错误：
+1、Property 'sqlSessionFactory' or 'sqlSessionTemplate' are required 这个出现是由于使用的高版本的mybatis-spring包
+解决办法：
+mybatis-spring-1.3.2中取消了自动注入SqlSessionFactory 和 SqlSessionTemplate，
+所以会报出Property ‘sqlSessionFactory’ or ‘sqlSessionTemplate’ are required错误。
+在BaseDao 里面 添加了下列代码
+@Resource
+public void setSqlSessionFactory(SqlSessionFactory sqlSessionFactory) {
+	super.setSqlSessionFactory(sqlSessionFactory);
+}
+2、org.mybatis.spring.transaction.SpringManagedTransaction.getTimeout() mybatis和spring-mybatis版本问题
+要想不出现该问题 就修改mybatis-spring的版本号为1.1.0即可
+
+Spring_Mybatis整合包版本
+MyBatis-Spring				MyBatis						Spring
+1.0.0 and 1.0.1				3.0.1 to 3.0.5				3.0.0 or higher
+1.0.2						3.0.6						3.0.0 or higher
+1.1.0 or higher				3.1.0 or higher				3.0.0 or higher
+1.3.0 or higher				3.4.0 or higher				3.0.0 or higher
+
+注意：高版本的MyBatis-Spring
+
+http://192.168.1.58:8080/SpringMVC_Mybatis/index.jsp
+http://192.168.1.58:8080/SpringMVC_Mybatis/index/hello
+
+http://192.168.1.58:8080/SpringMVC_Mybatis/districtManger/create
+
+http://192.168.1.58:8080/SpringMVC_Mybatis/districtManger/selectByPrimaryKey?id=1
+
+http://192.168.1.58:8080/SpringMVC_Mybatis/districtManger/testTx
+
+
+
+
+选中pom.xml右键  run as  Maven build  Goals填入mybatis-generator:generate
+
+
+
+c3p0的坑：com.mchange.v2.c3p0.impl.NewProxyResultSet.getNString(Ljava/lang/String;)Ljava/lang/String;]
+因为版本过低，没有getNString这个方法接收数据库字段类型为nvarchar(50)的。
+解决方式有升级c3p0,或者改用其他连接池，或者数据库字段类型改成varchar()
+
+
+
+
+
+
+
+
+
