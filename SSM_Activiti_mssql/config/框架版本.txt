@@ -1,0 +1,8 @@
+由于是老项目，所以不是Maven项目
+Spring4.0.6 + Mybatis3.1.0 + mybatis-spring1.1.0+c3p0 0.9.0.2 + activiti5.16
+
+在WebRoot/WEB-INF/下面 有db文件  用于该项目的数据库文件
+
+http://192.168.1.58:8080/SSM_Activiti_mssql/helloword/getLists
+http://192.168.1.58:8080/SSM_Activiti_mssql/helloword/errorPage
+http://192.168.1.58:8080/SSM_Activiti_mssql/helloword/helloPage
