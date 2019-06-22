@@ -1,0 +1,36 @@
+Spring4.1.2 + Hibernate4.2.1 + Spring-orm3.2.6
+
+由于版本冲突会报2个错误：
+1、java.lang.ClassNotFoundException: org.hibernate.service.jta.platform.spi.JtaPlatform
+解决办法：
+由于hibernate4.2中有“org.hibernate.service.jta.platform.spi.JtaPlatform”这个类，而hibernate4.3中没有这个类
+
+2、Spring整合Hibernate4遇到报错java.lang.ClassNotFoundException: org.springframework.orm.hibernate4.LocalSessionFactoryBean解决方法
+缺少spring-orm的包或者spring-orm版本不一致
+
+
+
+http://192.168.1.58:8080/SpringMVC_Hibernate/index.jsp
+
+http://192.168.1.58:8080/SpringMVC_Hibernate/index/hello
+
+http://192.168.1.58:8080/SpringMVC_Hibernate/student/addStudent
+
+http://192.168.1.58:8080/SpringMVC_Hibernate/student/delStudent
+
+http://192.168.1.58:8080/SpringMVC_Hibernate/student/findStudent
+
+http://192.168.1.58:8080/SpringMVC_Hibernate/student/testTx
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop" xmlns:c="http://www.springframework.org/schema/c" xmlns:cache="http://www.springframework.org/schema/cache" xmlns:context="http://www.springframework.org/schema/context" xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:jee="http://www.springframework.org/schema/jee" xmlns:lang="http://www.springframework.org/schema/lang" xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:p="http://www.springframework.org/schema/p" xmlns:task="http://www.springframework.org/schema/task" xmlns:tx="http://www.springframework.org/schema/tx" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
+		http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<!-- 只扫描Controller注解  
+	注意注意：可以看出要把最终的包写上，而不能这样写base-package=”com.allen”。这种写法对于include-filter来讲它都会扫描，而不是仅仅扫描@Controller
+	就会造成事务不起作用（整了我一天  一直纠结在spring+hibernate事物的配置上面 哎）
+	-->
+    <context:component-scan base-package="com.allen.controller">
+    	<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+    </context:component-scan>
+	
+    
+    <!-- Spring MVC JSON配置 --> 
+    <mvc:annotation-driven>
+        <mvc:message-converters>
+           <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
+           <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+	           <property name="supportedMediaTypes">
+		            <list>
+		              <value>text/html;charset=UTF-8</value>
+		              <value>application/json;charset=UTF-8</value>
+		            </list> 
+	         </property>
+	       </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+    
+	<!-- 对转向页面的路径解析。prefix：前缀， suffix：后缀 -->
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="requestContextAttribute" value="rc" />
+		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
+		<property name="prefix" value="/WEB-INF/view/"/>
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+	
+	<!--配置最大上传文件大小200M	-->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="20971520" />
+	</bean>
+	      
+</beans>
