@@ -1,0 +1,23 @@
+深入学习SpringMVC的工作原理  然后自己编写一个简单的MVC框架
+在/SpringMVCDemo/src/main/webapp/WEB-INF/web.xml文件中 配置自己的DispatcherServlet
+
+
+其中最主要的两个文件：
+/SpringMVCDemo/src/main/java/com/allen/framework/servlet/GPDispatcherServlet.java
+/SpringMVCDemo/src/main/java/com/allen/framework/context/GPApplicationContext.java
+
+
+
+添加到tomcat（端口8080）服务器中 启动程序  打印如下 ：
+**********************
+IOC 容器已经初始化
+Mapping: /web/add.json public com.allen.framework.servlet.GPModelAndView com.allen.demo.action.FirstAction.add(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+Mapping: /web/query/.*.json public com.allen.framework.servlet.GPModelAndView com.allen.demo.action.FirstAction.query(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,java.lang.String,java.lang.String)
+GPSpring MVC is init.
+**********************
+
+访问如下网址 成功
+http://localhost:8080/SpringMVCDemo/web//query/.*.json?name=allen&addr=WuHan
+
+http://localhost:8080/SpringMVCDemo/web/add.json
+
