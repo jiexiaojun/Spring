@@ -1,5 +1,6 @@
 package com.allen.test;
 
+import javax.core.common.config.CustomConfig;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,8 +23,9 @@ public class MemberManagerServiceTest {
 	// 当application-context.xml文件文件中aop文件被注释掉的时候 此时没有采用AOP 只执行了add方法
 	// 当application-context.xml文件文件中aop文件没有被注释掉的时候 此时AOP生效了 ，在调用方法前后执行了LogAspect中的方法
 	@Test
-	@Ignore
+//	@Ignore
 	public void testAdd() {
+		System.err.println(CustomConfig.getValue("system.local"));
 		memberManagerService.add(null);
 	}
 
@@ -37,7 +39,7 @@ public class MemberManagerServiceTest {
 
 	// 完全裸露，一丝不挂
 	@Test
-//	@Ignore
+	@Ignore
 	public void testRemove() {
 		try {
 			memberManagerService.remove(0);

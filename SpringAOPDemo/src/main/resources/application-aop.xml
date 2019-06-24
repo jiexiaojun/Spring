@@ -11,7 +11,7 @@
 	<aop:aspectj-autoproxy proxy-target-class="true"/>
 	
 	<!-- 声明一个需要织入到虚拟切面的逻辑（切面） xml配置方式  还可以使用注解 见
-	SpringAOPDemo/src/main/java/com/allen/aop/aspect/AnnotationAspect.java -->
+	SpringAOPDemo/src/main/java/com/allen/aop/aspect/AnnotationAspect.java 二者等效 -->
 	
 	
 	<!-- <bean id="logAspect" class="com.allen.aop.aspect.LogAspect"></bean>

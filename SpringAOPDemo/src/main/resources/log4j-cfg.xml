@@ -9,7 +9,7 @@
 	</appender>
 
 	<appender name="file" class="org.apache.log4j.DailyRollingFileAppender">
-		<param name="file" value="D:/GUPAOEDU/gupaoedu-vip-springaop/logs/webapp.log" />
+		<param name="file" value="/opt/SpringAOPDemo/logs/webapp.log" />
 		<param name="append" value="true" />
 		<param name="datePattern" value="'.'yyyy-MM-dd" />
 		<layout class="org.apache.log4j.PatternLayout">
@@ -21,7 +21,7 @@
 	</appender>
 
 	<appender name="warn" class="org.apache.log4j.DailyRollingFileAppender">
-		<param name="file" value="D:/GUPAOEDU/gupaoedu-vip-springaop/logs/warn.log" />
+		<param name="file" value="/opt/SpringAOPDemo/logs/warn.log" />
 		<param name="append" value="true" />
 		<param name="datePattern" value="'.'yyyy-MM-dd" />
 		<layout class="org.apache.log4j.PatternLayout">
@@ -35,7 +35,7 @@
 	</appender>
 
 	<appender name="error" class="org.apache.log4j.DailyRollingFileAppender">
-		<param name="file" value="D:/GUPAOEDU/gupaoedu-vip-springaop/logs/error.log" />
+		<param name="file" value="/opt/SpringAOPDemo/logs/error.log" />
 		<param name="append" value="true" />
 		<param name="datePattern" value="'.'yyyy-MM-dd" />
 		<layout class="org.apache.log4j.PatternLayout">
