@@ -45,11 +45,11 @@ import com.alibaba.fastjson.util.TypeUtils;
 /**
  * BaseDao 扩展类,主要功能是支持自动拼装sql语句，必须继承方可使用
  * 需要重写和实现以下三个方法
- *  //设定主键列
+ *  1、设定主键列
  *	private String getPKColumn() {return "id";}
- *	//重写对象反转为Map的方法  
+ *	2、重写对象反转为Map的方法  
  *	protected Map<String, Object> parse(Object entity) {return utils.parse((Entity)entity);}
- *	//重写结果反转为对象的方法
+ *	3、重写结果反转为对象的方法
  *	protected Entity mapRow(ResultSet rs, int rowNum) throws SQLException {return utils.parse(rs);}
  *
  *
@@ -72,8 +72,6 @@ public abstract class BaseDaoSupport<T extends Serializable, PK extends Serializ
 
 	protected BaseDaoSupport() {
 		try {
-			// Class<T> entityClass = (Class<T>)((ParameterizedType)
-			// getClass().getGenericSuperclass()).getActualTypeArguments()[0];
 			Class<T> entityClass = GenericsUtils.getSuperClassGenricType(getClass(), 0);
 			op = new EntityOperation<T>(entityClass, this.getPKColumn());
 			this.setTableName(op.tableName);
@@ -314,10 +312,8 @@ public abstract class BaseDaoSupport<T extends Serializable, PK extends Serializ
 		int maxPage = (len % step == 0) ? (len / step) : (len / step + 1);
 		for (int i = 1; i <= maxPage; i++) {
 			Page<T> page = pagination(list, i, step);
-			String sql = "insert into " + getTableName() + "(" + op.allColumn + ") values ";// (" +
-																							// valstr.toString()
-																							// +
-																							// ")";
+			// ("+valstr.toString()+")";
+			String sql = "insert into " + getTableName() + "(" + op.allColumn + ") values ";
 			StringBuffer valstr = new StringBuffer();
 			Object[] values = new Object[pm.size() * page.getRows().size()];
 			for (int j = 0; j < page.getRows().size(); j++) {
