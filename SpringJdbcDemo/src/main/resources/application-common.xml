@@ -11,7 +11,6 @@
 
  	<context:component-scan base-package="com.allen"/>
 	<context:annotation-config />
-	<!-- <task:annotation-driven /> -->
 
     <bean id="log4jInitialization"
 		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
@@ -23,7 +22,7 @@
 			</list>
 		</property>
 	</bean>
-	
+	<!-- 注入自己写的类  加载文件信息 -->
 	<bean id="propertyConfigurer" class="javax.core.common.config.CustomConfig">
 		<property name="locations">
 			<list>

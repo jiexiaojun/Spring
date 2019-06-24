@@ -1,6 +1,7 @@
 package com.allen.jdbc.test;
 
 import java.util.List;
+import javax.core.common.config.CustomConfig;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -77,6 +78,7 @@ public class MemberDaoTest {
 	@Test
 //	@Ignore
 	public void testSelectByName() {
+		System.err.println(CustomConfig.getValue("system.sysCode"));
 		try {
 			List<Member> r = memberDao.selectByName("汪俊");
 			System.out.println(JSON.toJSON(r));
