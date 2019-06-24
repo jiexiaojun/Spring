@@ -80,7 +80,7 @@ public class MemberDaoTest {
 	public void testSelectByName() {
 		System.err.println(CustomConfig.getValue("system.sysCode"));
 		try {
-			List<Member> r = memberDao.selectByName("汪俊");
+			List<Member> r = memberDao.selectByName("刘丽");
 			System.out.println(JSON.toJSON(r));
 		} catch (Exception e) {
 			e.printStackTrace();

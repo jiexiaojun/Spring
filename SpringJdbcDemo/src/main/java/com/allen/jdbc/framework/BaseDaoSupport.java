@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Member;
 import java.sql.Blob;
 import java.sql.Clob;
 import java.sql.Connection;
@@ -1610,7 +1611,7 @@ public abstract class BaseDaoSupport<T extends Serializable, PK extends Serializ
 		List<FieldInfo> getters = TypeUtils.computeGetters(obj.getClass(), null);
 		for (int i = 0, len = getters.size(); i < len; i++) {
 			FieldInfo fieldInfo = getters.get(i);
-			String name = fieldInfo.getName();
+			String name = ((Member) fieldInfo).getName();
 			try {
 				Object value = fieldInfo.get(obj);
 				map.put(name, value);
