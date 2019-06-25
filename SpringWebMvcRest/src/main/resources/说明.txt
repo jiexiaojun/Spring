@@ -1,0 +1,32 @@
+打开/SpringWebMvcRest/src/main/java/com/allen/SpringWebMvcRestApplication.java文件
+
+右键run as  Java Application 启动
+
+
+使用浏览器即可
+http://localhost:8080/person/1?name=allen  返回json格式数据：{"id":1,"name":"allen"}
+
+
+使用postman采用post方式  properties/to/json
+http://localhost:8080/person/properties/to/json
+body里面的参数：
+person.id=520
+person.name=LiuLi
+Headers里面
+Content-Type  配置	application/properties+person 	
+Accept        配置	application/json;charset=UTF-8
+返回json格式数据：{"id": 520,"name": "LiuLi"}
+
+
+使用postman采用post方式  json/to/properties
+http://localhost:8080/person/json/to/properties
+body里面的参数：
+{"id": 520,"name": "LiuLi"}
+Headers里面
+Content-Type  配置	application/json;charset=UTF-8 	
+Accept        配置	application/properties+person
+返回结果：
+#Written by web server
+#Tue Jun 25 20:22:50 CST 2019
+person.name=LiuLi
+person.id=520
