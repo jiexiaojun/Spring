@@ -1,0 +1,19 @@
+打开/SpringWebMvc/src/main/java/com/allen/SpringWebMvcApplication.java文件
+
+右键run as  Java Application 启动
+
+http://localhost:8080/hello   跳转到hello.html页面
+
+http://localhost:8080/404   跳转到页面不存在
+
+空指针异常通过hander处理
+http://localhost:8080/exception
+
+
+返回json格式数据
+http://localhost:8080/data
+
+
+页面没找到 使用的是SprigBoot的ErrorPageRegistrar
+
+分别有两种方式 一个是返回json文本一个是返回页面
