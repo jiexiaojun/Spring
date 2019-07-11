@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 启动时初始化Spring上下文工具类 -->
+    <bean id="springContextUtils" class="net.chenlin.dp.common.utils.SpringContextUtils"/>
+
+    <!-- Kaptcha验证码生成器 -->
+    <bean name="producer" class="com.google.code.kaptcha.impl.DefaultKaptcha"
+          scope="singleton">
+        <property name="config">
+            <bean class="com.google.code.kaptcha.util.Config">
+                <constructor-arg>
+                    <props>
+                    	<!-- 图片边框  合法值：yes , no默认值 yes-->
+                        <prop key="kaptcha.border">no</prop>
+                        <!-- 边框颜色，合法值： r,g,b (and optional alpha) 或者 white,black,blue. 默认值 black-->
+                        <prop key="kaptcha.textproducer.font.color">black</prop>
+                        <!-- 文字间隔  默认值 2-->
+                        <prop key="kaptcha.textproducer.char.space">5</prop>
+                    </props>
+                </constructor-arg>
+            </bean>
+        </property>
+    </bean>
+
+</beans>
