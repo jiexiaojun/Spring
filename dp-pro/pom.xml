@@ -54,7 +54,7 @@
         <thymeleaf-version>3.0.9.RELEASE</thymeleaf-version>
         <spring-data-redis-version>2.0.9.RELEASE</spring-data-redis-version>
         <quartz-version>2.2.3</quartz-version>
-        <jackjson-verison>2.9.6</jackjson-verison>
+        <jackjson-verison>2.10.0.pr1</jackjson-verison>
     </properties>
 
     <!-- 阿里云maven仓库 -->
