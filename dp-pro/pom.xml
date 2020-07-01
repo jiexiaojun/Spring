@@ -53,7 +53,7 @@
         <ehcache-core-version>2.6.11</ehcache-core-version>
         <thymeleaf-version>3.0.9.RELEASE</thymeleaf-version>
         <spring-data-redis-version>2.0.9.RELEASE</spring-data-redis-version>
-        <quartz-version>2.2.3</quartz-version>
+        <quartz-version>2.3.2</quartz-version>
         <jackjson-verison>2.9.6</jackjson-verison>
     </properties>
 
