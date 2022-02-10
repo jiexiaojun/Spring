@@ -35,7 +35,7 @@
 		<junit.version>3.8.1</junit.version>
 		<jstl.version>1.2</jstl.version>
 		<!-- hibernate版本号 -->
-		<hibernate.version>4.2.1.Final</hibernate.version>
+		<hibernate.version>5.4.24.Final</hibernate.version>
 	</properties>
   
   	<dependencies>  
